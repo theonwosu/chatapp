@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="css/main.css" rel="stylesheet" type="text/css"/>
+<link href="css/bootstrap/4.3.1/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="css/magnific-popup/magnific-popup.css">
+<title>Chat App</title>
+</head>
+<body>
+<div class="container">
+<header id="heading">
+<form id="form1">
+<input id="imageId" type="file" accept='image/*' placeholder="upload image" />
+<button type="button" class="btn btn-primary" onclick="uploadImage()">Upload</button>
+<img id="photoId" width="30px" height="30px"/>
+<span id="viewImageId">
+   <a id="linkId" href="" class="btn btn-primary">View Image</a>
+</span>
+<!-- <button type="button" onclick="resetImageField()" class="btn btn-primary">Reset field</button> -->
+</form>
+<hr>
+</header>
+<div id="chat-area">
+        <ul id="messages" class="messages" data-bind="foreach: messages">
+            <li class="list-header" data-bind="visible: isDate">
+                <div class="content" data-bind="text: timeSentDateDisplay">
+                </div>
+            </li>
+            <li class="message clearfix" data-bind="visible: isFirst">
+                <div class="left">
+                    <div class="name" data-bind="text: userName"></div>
+                </div>
+                <div class="middle first" data-bind="text: message"></div>
+                <div class="right first"><span class="time" data-bind="attr: {title: timeSentFullDisplay()}, text: timeSentTimeDisplay()"></span></div>
+            </li>
+            <li class="message clearfix"  data-bind="visible: !isFirst">
+                <div class="left">
+                </div>
+                <div class="middle" data-bind="text: message"></div>
+                <div class="right"><span class="time" data-bind="attr: {title: timeSentFullDisplay()}, text: timeSentTimeDisplay()"></span></div>
+            </li>
+        </ul>
+</div>
+<form id="send-message">
+     <input type="text" placeholder="Message"  id="messageId"/>
+     <button type="button" onclick="sendMessage()" class="btn btn-primary">Send</button>
+</form>
+</div>
+
+
+<script src="js/jquery/jquery-3.3.1.slim.min.js"></script>
+<script src="js/bootstrap/4.3.1/bootstrap.min.js"></script>
+<script src="js/momentjs/moment.js"></script>
+<script src="js/knockoutjs/knockout3.5.0.js"></script>
+<script src="js/chat.js"></script>
+<script src="js/main.js"></script>
+<script src="js/magnific-popup/jquery.magnific-popup.js"></script>
+</body>
+</html>
